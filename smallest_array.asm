@@ -1,0 +1,17 @@
+			AREA SMALL, CODE , READONLY
+			ENTRY 
+			MOV R10,#4
+			LDR R1,=0x40000000
+			LDR R4,[R1],#4
+			SUBS R10,R10,#1
+			
+LOOP	LDR R5,[R1],#4
+			CMP R4,R5
+			BLT HERE
+			
+			
+HERE	SUBS R10,R10,#1
+			BNE LOOP
+			
+STOP 	B STOP
+			END
